@@ -1,0 +1,37 @@
+﻿@model MVCDev.ViewModels.LoginWith2faViewModel
+
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+<p>A code was sent via e-mail. Please enter the code now:</p>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="LoginWith2fa">
+            <input type="hidden" asp-for="RememberMe" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Code">Code</label>
+                <input asp-for="Code" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="RememberMachine">
+                        <input asp-for="RememberMachine" />
+                        @Html.DisplayNameFor(m => m.RememberMachine)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
